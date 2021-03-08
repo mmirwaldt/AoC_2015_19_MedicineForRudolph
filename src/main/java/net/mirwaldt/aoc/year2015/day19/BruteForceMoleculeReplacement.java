@@ -12,25 +12,59 @@ public class BruteForceMoleculeReplacement implements MoleculeReplacement {
 
     @Override
     public Set<String> replace(String favouriteMolecule) {
-        final Set<String> result = new HashSet<>();
-        final StringBuilder stringBuilder = new StringBuilder(favouriteMolecule);
-        for (Map.Entry<String, List<String>> replacementEntry : replacements.entrySet()) {
-            final String inputMolecule = replacementEntry.getKey();
-            final List<String> outputMolecules = replacementEntry.getValue();
+        return new InternalBruteForceMoleculeReplacement(replacements).replace(favouriteMolecule);
+    }
+
+    static class InternalBruteForceMoleculeReplacement {
+        private final SortedMap<String, List<String>> replacements;
+        private StringBuilder molecule;
+        private Set<String> result;
+
+        public InternalBruteForceMoleculeReplacement(SortedMap<String, List<String>> replacements) {
+            this.replacements = replacements;
+        }
+
+        public Set<String> replace(String favouriteMolecule) {
+            molecule = new StringBuilder(favouriteMolecule);
+            result = new HashSet<>();
+            for (Map.Entry<String, List<String>> replacementEntry : replacements.entrySet()) {
+                final String inputMolecule = replacementEntry.getKey();
+                final List<String> outputMolecules = replacementEntry.getValue();
+                applyReplacements(inputMolecule, outputMolecules);
+            }
+            return result;
+        }
+
+
+        private void applyReplacements(String inputMolecule, List<String> outputMolecules) {
             for (String outputMolecule : outputMolecules) {
-                int indexOfInputMolecule = stringBuilder.indexOf(inputMolecule);
+                int indexOfInputMolecule = findFirstInputMolecule(inputMolecule);
                 while (-1 < indexOfInputMolecule) {
-                    stringBuilder.replace(
-                            indexOfInputMolecule, indexOfInputMolecule + inputMolecule.length(), outputMolecule);
-                    final String newMolecule = stringBuilder.toString();
-                    result.add(newMolecule);
-                    stringBuilder.replace(
-                            indexOfInputMolecule, indexOfInputMolecule + outputMolecule.length(), inputMolecule);
-                    indexOfInputMolecule = stringBuilder.indexOf(
-                            inputMolecule, indexOfInputMolecule + inputMolecule.length());
+                    result.add(createNewMolecule(inputMolecule, outputMolecule, indexOfInputMolecule));
+                    resetMolecule(inputMolecule, outputMolecule, indexOfInputMolecule);
+                    indexOfInputMolecule = findNextInputMolecule(inputMolecule, indexOfInputMolecule);
                 }
             }
         }
-        return result;
+
+        private int findFirstInputMolecule(String inputMolecule) {
+            return molecule.indexOf(inputMolecule);
+        }
+
+        private int findNextInputMolecule(String inputMolecule, int indexOfInputMolecule) {
+            return molecule.indexOf(
+                    inputMolecule, indexOfInputMolecule + inputMolecule.length());
+        }
+
+        private String createNewMolecule(String inputMolecule, String outputMolecule, int indexOfInputMolecule) {
+            molecule.replace(
+                    indexOfInputMolecule, indexOfInputMolecule + inputMolecule.length(), outputMolecule);
+            return molecule.toString();
+        }
+
+        private void resetMolecule(String inputMolecule, String outputMolecule, int indexOfInputMolecule) {
+            molecule.replace(
+                    indexOfInputMolecule, indexOfInputMolecule + outputMolecule.length(), inputMolecule);
+        }
     }
 }

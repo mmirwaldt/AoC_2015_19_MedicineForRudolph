@@ -2,13 +2,8 @@ package net.mirwaldt.aoc.year2015.day19;
 
 import java.util.*;
 
-public class PartOneBruteForceMoleculeReplacement implements MoleculeReplacement {
-    private final SortedMap<String, List<String>> replacements = new TreeMap<>();
-
-    @Override
-    public void addReplacement(String inputMolecule, String outputMolecule) {
-        replacements.computeIfAbsent(inputMolecule, key -> new ArrayList<>()).add(outputMolecule);
-    }
+public class PartOneBruteForceMoleculeReplacement extends AbstractMoleculeReplacement
+        implements PartOneMoleculeReplacement {
 
     @Override
     public Set<String> replace(String favouriteMolecule) {

@@ -9,20 +9,20 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PartOneMoleculeReplacementTest {
+public class PartTwoMoleculeReplacementTest {
     private static Stream<Arguments> moleculeReplacement() {
-        return Stream.of(Arguments.of(new PartOneBruteForceMoleculeReplacement()));
+        return Stream.of(Arguments.of(new PartTwoBruteForceMoleculeReplacement()));
     }
 
     @ParameterizedTest
     @MethodSource("moleculeReplacement")
-    void test_example(PartOneMoleculeReplacement moleculeReplacement) {
+    void test_example(PartTwoMoleculeReplacement moleculeReplacement) {
+        moleculeReplacement.addReplacement("e", "H");
+        moleculeReplacement.addReplacement("e", "O");
         moleculeReplacement.addReplacement("H", "HO");
         moleculeReplacement.addReplacement("H", "OH");
         moleculeReplacement.addReplacement("O", "HH");
-        assertEquals(Set.of("HOOH", "HOHO", "OHOH", "HHHH"),
-                moleculeReplacement.replace("HOH"));
-        assertEquals(Set.of("HHHHOHO", "HOHHHHO", "HOHOHHH", "HOOHOHO", "HOHOOHO", "HOHOHOO", "OHOHOHO"),
-                moleculeReplacement.replace("HOHOHO"));
+        assertEquals(3, moleculeReplacement.replaceStartingFromE("HOH"));
+        assertEquals(6, moleculeReplacement.replaceStartingFromE("HOHOHO"));
     }
 }

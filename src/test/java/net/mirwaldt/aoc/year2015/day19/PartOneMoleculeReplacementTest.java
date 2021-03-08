@@ -9,9 +9,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MoleculeReplacementTest {
+public class PartOneMoleculeReplacementTest {
     private static Stream<Arguments> moleculeReplacement() {
-        return Stream.of(Arguments.of(new BruteForceMoleculeReplacement()));
+        return Stream.of(Arguments.of(new PartOneBruteForceMoleculeReplacement()));
     }
 
     @ParameterizedTest

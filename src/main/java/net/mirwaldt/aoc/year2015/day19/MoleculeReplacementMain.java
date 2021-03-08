@@ -9,7 +9,7 @@ import java.util.List;
 public class MoleculeReplacementMain {
     public static void main(String[] args) throws IOException {
         final List<String> lines = Files.readAllLines(Path.of("input.txt"), StandardCharsets.US_ASCII);
-        final MoleculeReplacement moleculeReplacement = new BruteForceMoleculeReplacement();
+        final MoleculeReplacement moleculeReplacement = new PartOneBruteForceMoleculeReplacement();
         int lineCounter = 0;
         for (String line : lines) {
             if(line.trim().isEmpty()) {

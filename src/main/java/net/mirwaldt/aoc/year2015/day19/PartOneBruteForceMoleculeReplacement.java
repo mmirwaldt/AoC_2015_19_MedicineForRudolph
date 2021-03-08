@@ -2,7 +2,7 @@ package net.mirwaldt.aoc.year2015.day19;
 
 import java.util.*;
 
-public class BruteForceMoleculeReplacement implements MoleculeReplacement {
+public class PartOneBruteForceMoleculeReplacement implements MoleculeReplacement {
     private final SortedMap<String, List<String>> replacements = new TreeMap<>();
 
     @Override

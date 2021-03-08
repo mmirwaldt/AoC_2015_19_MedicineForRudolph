@@ -22,7 +22,7 @@ public class MoleculeReplacementTest {
         moleculeReplacement.addReplacement("O", "HH");
         assertEquals(Set.of("HOOH", "HOHO", "OHOH", "HHHH"),
                 moleculeReplacement.replace("HOH"));
-        assertEquals(Set.of("HHOHOHO", "HOHHOHO", "HOHOHHO", "OHOHOHO", "HOOHOHO", "HOHOOHO", "HOHOHOO"),
+        assertEquals(Set.of("HHHHOHO", "HOHHHHO", "HOHOHHH", "HOOHOHO", "HOHOOHO", "HOHOHOO", "OHOHOHO"),
                 moleculeReplacement.replace("HOHOHO"));
     }
 }

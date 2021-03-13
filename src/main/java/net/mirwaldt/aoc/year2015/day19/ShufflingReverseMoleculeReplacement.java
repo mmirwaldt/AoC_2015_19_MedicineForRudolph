@@ -32,7 +32,7 @@ public class ShufflingReverseMoleculeReplacement
             }
 
             counter = 0;
-            for (int i = 0; i < rounds; i++) {
+            for (int i = 0; i < rounds && isNotOnlyE(); i++) {
                 for(Map.Entry<String, String> reverseReplacementEntry : reverseReplacements.entrySet()) {
                     final String outputMolecule = reverseReplacementEntry.getKey();
                     final String inputMolecule = reverseReplacementEntry.getValue();
@@ -49,6 +49,6 @@ public class ShufflingReverseMoleculeReplacement
     }
 
     private boolean isNotOnlyE() {
-        return 1 < replacedFavouriteMolecule.length() && !replacedFavouriteMolecule.toString().equals("e");
+        return !replacedFavouriteMolecule.toString().equals("e");
     }
 }

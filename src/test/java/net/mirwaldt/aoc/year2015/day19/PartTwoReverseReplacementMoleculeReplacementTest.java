@@ -21,7 +21,7 @@ public class PartTwoReverseReplacementMoleculeReplacementTest {
         moleculeReplacement.addReplacement("H", "HO");
         moleculeReplacement.addReplacement("H", "OH");
         moleculeReplacement.addReplacement("O", "HH");
-        assertEquals(3, moleculeReplacement.reverseReplaceToE("HOH", 10));
-        assertEquals(6, moleculeReplacement.reverseReplaceToE("HOHOHO", 10));
+        assertEquals(3, moleculeReplacement.reverseReplaceToE("HOH", 1));
+        assertEquals(6, moleculeReplacement.reverseReplaceToE("HOHOHO", 1));
     }
 }

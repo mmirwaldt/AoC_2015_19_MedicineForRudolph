@@ -13,13 +13,13 @@ public class ShufflingReverseMoleculeReplacement
     public int reverseReplaceToE(String favouriteMolecule, int rounds) {
         List<List<String>> reverseReplacementsShuffled = new ArrayList<>();
         for(Map.Entry<String, List<String>> entry : replacements.entrySet()) {
+            final String inputMolecule = entry.getKey();
             for (String outputMolecule : entry.getValue()) {
-                reverseReplacementsShuffled.add(Arrays.asList(outputMolecule, entry.getKey()));
+                reverseReplacementsShuffled.add(Arrays.asList(outputMolecule, inputMolecule));
             }
         }
 
         replacedFavouriteMolecule = new StringBuilder(favouriteMolecule.length());
-        replacedFavouriteMolecule.append(favouriteMolecule);
         int counter = 0;
         while(isNotOnlyE()) {
             replacedFavouriteMolecule.delete(0, replacedFavouriteMolecule.length());

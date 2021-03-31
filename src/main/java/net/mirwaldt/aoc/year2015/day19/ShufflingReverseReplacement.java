@@ -7,6 +7,6 @@ public class ShufflingReverseReplacement extends ReorderingReverseReplacement {
     private final Random random = ThreadLocalRandom.current();
 
     protected void reorderReverseReplacementsRules() {
-        Collections.shuffle(orderedReverseReplacements, random); // That's the trick! No idea why that works!
+        Collections.shuffle(orderedReverseReplacements, random); // That's the trick!
     }
 }

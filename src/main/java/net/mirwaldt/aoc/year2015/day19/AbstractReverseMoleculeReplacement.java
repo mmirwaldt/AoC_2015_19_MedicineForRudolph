@@ -5,7 +5,16 @@ import java.util.*;
 public abstract class AbstractReverseMoleculeReplacement
         extends AbstractMoleculeReplacement
         implements PartTwoReverseMoleculeReplacement {
+    /**
+     * a map where replacements are reversed, e.g. CaSi -> Si from Si => CaSi
+     */
     protected final Map<String, String> reverseReplacements = new LinkedHashMap<>();
+    /**
+     * a list of all reversed replacements as lists
+     * where the first element is the output molecule and the second element the input molecule.
+     * E.g. Si => CaSi and Th => ThCa become [[CaSi, Si], [ThCa, Th]]
+     * (reversed because we apply reverse replacements)
+     */
     protected List<List<String>> orderedReverseReplacements = new ArrayList<>();
     protected StringBuilder replacedFavouriteMolecule;
 

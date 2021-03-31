@@ -4,6 +4,11 @@ import net.mirwaldt.aoc.year2015.day19.ShufflingReverseReplacement;
 
 import java.util.*;
 
+/**
+ * This class counts relations between replacements and creates a histogram.
+ * A relation is just the transitive order of a replacement,
+ * e.g. [[N, CRnFAr], [e, NAl]] means that "N => CRnFAr" must occur before "e => NAl"
+ */
 public class ResearchingShuffling extends ShufflingReverseReplacement {
     private final int maxCountOfHistograms;
     private final HistogramCounter histogramCounter;

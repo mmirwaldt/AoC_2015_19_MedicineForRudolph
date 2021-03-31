@@ -1,0 +1,30 @@
+ResearchingShufflingReverseMoleculeReplacement{
+histogramOfSuccessCounter=3250,
+histogramOfFailureCounter=996751,
+transitiveHistogramOfSuccess=
+3250:
+[[Th, ThCa], [Al, ThRnFAr]][[Al, ThRnFAr], [Ca, SiTh]][[Th, ThCa], [Ca, SiTh]]
+3207:
+[[N, CRnFAr], [e, NAl]]
+3189:
+[[Th, ThCa], [e, NAl]]
+3169:
+[[F, CaF], [e, NAl]]
+3091:
+[[F, CaF], [N, CRnFAr]]
+3005:
+[[Al, ThRnFAr], [e, NAl]]
+2933:
+[[F, PMg], [e, NAl]]
+2928:
+[[Th, ThCa], [N, CRnFAr]]
+2847:
+[[F, CaF], [Ca, SiTh]]
+2829:
+[[P, SiRnFAr], [e, NAl]]
+}
+histogramCount=2
+explicitRulesCount=4
+implicitRulesInRemaining.size()=294
+195
+195

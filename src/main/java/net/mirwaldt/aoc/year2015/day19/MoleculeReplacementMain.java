@@ -15,15 +15,15 @@ public class MoleculeReplacementMain {
 
         System.out.println(partOneMoleculeReplacement.replace(favouriteMolecule).size()); // result: 509
 
-        final ShufflingReverseMoleculeReplacement moleculeReplacement =
-                new ShufflingReverseMoleculeReplacement();
+        final ShufflingReverseReplacement moleculeReplacement =
+                new ShufflingReverseReplacement();
         addReplacements(lines, moleculeReplacement);
 
         // Must be at least 3 rounds. Otherwise the program hangs up in an infinite loop
         System.out.println(moleculeReplacement.reverseReplaceToE(favouriteMolecule, 3)); // result: 195
     }
 
-    private static void addReplacements(List<String> lines, MoleculeReplacement moleculeReplacement) {
+    public static void addReplacements(List<String> lines, MoleculeReplacement moleculeReplacement) {
         for (String line : lines) {
             if (line.trim().isEmpty()) {
                 break;

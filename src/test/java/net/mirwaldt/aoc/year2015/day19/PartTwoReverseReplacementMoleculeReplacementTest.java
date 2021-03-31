@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PartTwoReverseReplacementMoleculeReplacementTest {
     private static Stream<Arguments> moleculeReplacement() {
-        return Stream.of(Arguments.of(new ShufflingReverseMoleculeReplacement()));
+        return Stream.of(Arguments.of(new ShufflingReverseReplacement()));
     }
 
     @ParameterizedTest
